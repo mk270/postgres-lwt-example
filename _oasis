@@ -1,0 +1,14 @@
+OASISFormat: 0.3
+Name:        Postgres-Lwt-Example
+Version:     0.1
+Synopsis:    example code for Postgres + Lwt
+Authors:     Martin Keegan
+License:     Apache-2.0
+Plugins:     META (0.3)
+
+Executable main
+  Path:       src
+  BuildTools: ocamlbuild
+  MainIs:     main.ml
+  Custom: true
+  BuildDepends: lwt, lwt.syntax, lwt.unix, pgocaml

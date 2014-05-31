@@ -1,0 +1,11 @@
+*~
+lib/META
+myocamlbuild.ml
+*.byte
+setup.data
+setup.log
+setup.ml
+_build/
+*.mlpack
+src/._bcdi
+src/._d
