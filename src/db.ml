@@ -26,7 +26,7 @@ let init () =
 	in
 
 	lwt dbh = Lwt_PGOCaml.connect ~user () in
-	    Lwt_PGOCaml.prepare dbh ~query ~name () >>
-	    Lwt_PGOCaml.execute dbh ~name ~params:[] () >>=
+        Lwt_PGOCaml.prepare dbh ~query ~name () >>
+        Lwt_PGOCaml.execute dbh ~name ~params:[] () >>=
         Lwt_list.iter_s print_row >>
         Lwt_PGOCaml.close dbh
