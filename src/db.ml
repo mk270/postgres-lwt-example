@@ -20,10 +20,10 @@ let print_row row =
         Lwt_io.printl
 
 let init () =
-	let query = "select * from package;"
-	and user = "iatidq"
-	and name = "stmt1" (* nonce identifier of prepared statement *)
-	in
+    let query = "select * from package;"
+    and user = "iatidq"
+    and name = "stmt1" (* nonce identifier of prepared statement *)
+    in
 
     lwt dbh = Lwt_PGOCaml.connect ~user () in
         Lwt_PGOCaml.prepare dbh ~query ~name () >>
