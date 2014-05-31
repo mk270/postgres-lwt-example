@@ -25,7 +25,7 @@ let init () =
 	and name = "stmt1" (* nonce identifier of prepared statement *)
 	in
 
-	lwt dbh = Lwt_PGOCaml.connect ~user () in
+    lwt dbh = Lwt_PGOCaml.connect ~user () in
         Lwt_PGOCaml.prepare dbh ~query ~name () >>
         Lwt_PGOCaml.execute dbh ~name ~params:[] () >>=
         Lwt_list.iter_s print_row >>
