@@ -28,5 +28,5 @@ let init () =
 	lwt dbh = Lwt_PGOCaml.connect ~user () in
 	lwt () = Lwt_PGOCaml.prepare dbh ~query ~name () in
 	lwt rows = Lwt_PGOCaml.execute dbh ~name ~params:[] () in
-        Lwt_list.iter_s print_row rows >>=
-        (fun () -> Lwt_PGOCaml.close dbh)
+        Lwt_list.iter_s print_row rows >>
+        Lwt_PGOCaml.close dbh
