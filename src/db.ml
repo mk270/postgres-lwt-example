@@ -1,6 +1,4 @@
 
-open Printf
-
 let (>>=) = Lwt.bind
 
 module Lwt_thread = struct
@@ -10,14 +8,14 @@ end
 
 module Lwt_PGOCaml = PGOCaml_generic.Make (Lwt_thread)
 
+let string_of_optional = function
+    | None -> "NULL"
+    | Some str -> Printf.sprintf "%S" str
+
 let print_row row =
-    let string_of_optional = function
-        | None -> "NULL"
-        | Some str -> sprintf "%S" str
-    in
-        List.map string_of_optional row |>
-        String.concat "; " |>
-        Lwt_io.printl
+    List.map string_of_optional row |>
+    String.concat "; " |>
+    Lwt_io.printl
 
 let init () =
     let query = "select * from package;"
