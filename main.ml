@@ -8,7 +8,7 @@ end
 
 module Lwt_PGOCaml = PGOCaml_generic.Make (Lwt_thread)
 
-let init () =
+let run_query () =
     let query = "select * from package;"
     and user = "iatidq"
     and name = "stmt1" (* nonce identifier of prepared statement *)
@@ -21,5 +21,5 @@ let init () =
         Lwt_PGOCaml.close dbh
 
 let () = 
-    init () |> 
+    run_query () |> 
     Lwt_main.run
