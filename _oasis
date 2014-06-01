@@ -7,7 +7,7 @@ License:     Apache-2.0
 Plugins:     META (0.3)
 
 Executable main
-  Path:       src
+  Path:       .
   BuildTools: ocamlbuild
   MainIs:     main.ml
   Custom: true
