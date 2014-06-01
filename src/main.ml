@@ -1,3 +1,4 @@
 
 let () = 
-	Lwt_main.run (Db.init ())
+    Db.init () |> 
+    Lwt_main.run
